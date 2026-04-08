@@ -14,14 +14,14 @@ jobs:
         runs-on: windows-24.04
         steps:
             - run: echo "This is job 2. It runs on Windows 24.04."
-            - run: date
+            - run: dir
     job3:
         runs-on: macos-14
         steps:
             - run: echo "This is job 3. It runs on macOS 14."
             - run: df -h
     job4:
-        runs-on: redhat-latest
+        runs-on: ubuntu-latest
         steps:
             - run: echo "This is job 4. It runs on Red Hat latest."
             - run: cat /etc/os-release
