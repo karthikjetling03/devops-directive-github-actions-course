@@ -8,25 +8,30 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - run: echo "This is job 1. It runs on Ubuntu latest."
-            - run: uname -a 
+            - run: uname -a
     
     job2:
         runs-on: windows-latest
         steps:
             - run: echo "This is job 2. It runs on Windows latest."
             - run: dir
+        needs: job1
+
     job3:
         runs-on: macos-14
         steps:
             - run: echo "This is job 3. It runs on macOS 14."
             - run: df -h
+        needs: [job1, job2]           
     job4:
         runs-on: ubuntu-latest
         steps:
             - run: echo "This is job 4. It runs on Ubuntu latest."
             - run: cat /etc/os-release
+        needs: [job1, job2, job3]
     job5:
         runs-on: windows-latest
         steps:
             - run: echo "This is job 5. It runs on Windows latest."
             - run: systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
+        needs: [job1, job2, job3, job4]
