@@ -1,0 +1,32 @@
+name: Multiple Jobs Workflow
+
+on:
+    workflow_dispatch:
+
+jobs:
+    job1:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "This is job 1. It runs on Ubuntu latest."
+            - run: uname -a 
+    
+    job2:
+        runs-on: windows-24.04
+        steps:
+            - run: echo "This is job 2. It runs on Windows 24.04."
+            - run: date
+    job3:
+        runs-on: macos-14
+        steps:
+            - run: echo "This is job 3. It runs on macOS 14."
+            - run: df -h
+    job4:
+        runs-on: redhat-latest
+        steps:
+            - run: echo "This is job 4. It runs on Red Hat latest."
+            - run: cat /etc/os-release
+    job5:
+        runs-on: windows-latest
+        steps:
+            - run: echo "This is job 5. It runs on Windows latest."
+            - run: systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
