@@ -11,9 +11,9 @@ jobs:
             - run: uname -a 
     
     job2:
-        runs-on: windows-24.04
+        runs-on: windows-latest
         steps:
-            - run: echo "This is job 2. It runs on Windows 24.04."
+            - run: echo "This is job 2. It runs on Windows latest."
             - run: dir
     job3:
         runs-on: macos-14
@@ -23,7 +23,7 @@ jobs:
     job4:
         runs-on: ubuntu-latest
         steps:
-            - run: echo "This is job 4. It runs on Red Hat latest."
+            - run: echo "This is job 4. It runs on Ubuntu latest."
             - run: cat /etc/os-release
     job5:
         runs-on: windows-latest
